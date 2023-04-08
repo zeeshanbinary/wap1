@@ -1,10 +1,10 @@
 import React from 'react';
-import Navigations from './app/navigations/Navigations';
+import AuthNavigation from './app/AuthNavigation/AuthNavigation';
 
 const App = () => {
   return (
     <>
-      <Navigations />
+      <AuthNavigation />
     </>
   );
 };
