@@ -1,15 +1,36 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 
-const About = ({navigation}) => {
+const About = ({route, navigation}) => {
+  const {name, email, password, mobile, address} = route.params;
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => <Text>{name}</Text>,
+    });
+  }, [name]);
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>About Page</Text>
-      <TouchableOpacity
-        style={styles.btn}
-        onPress={() => navigation.navigate('Home')}>
-        <Text style={styles.btnText}>Goto Home Page</Text>
-      </TouchableOpacity>
+      <View style={styles.subContainer}>
+        <Text style={styles.titleName}>Name:</Text>
+        <Text style={styles.titleName}>{name}</Text>
+      </View>
+      <View style={styles.subContainer}>
+        <Text style={styles.titleName}>Email:</Text>
+        <Text style={styles.titleName}>{email}</Text>
+      </View>
+      <View style={styles.subContainer}>
+        <Text style={styles.titleName}>Password:</Text>
+        <Text style={styles.titleName}>{password}</Text>
+      </View>
+      <View style={styles.subContainer}>
+        <Text style={styles.titleName}>Mobile:</Text>
+        <Text style={styles.titleName}>{mobile}</Text>
+      </View>
+      <View style={styles.subContainer}>
+        <Text style={styles.titleName}>Address:</Text>
+        <Text style={styles.titleName}>{address}</Text>
+      </View>
     </View>
   );
 };
@@ -20,26 +41,19 @@ const styles = StyleSheet.create({
   container: {
     marginHorizontal: 8,
     marginVertical: 8,
-  },
-  title: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#333',
-    marginBottom: 8,
-  },
-  btn: {
-    backgroundColor: 'grey',
-    paddingHorizontal: 10,
-    paddingVertical: 10,
+    paddingHorizontal: 8,
+    paddingVertical: 8,
     borderRadius: 5,
+    elevation: 3,
+    backgroundColor: '#fff',
   },
-  btnText: {
-    color: '#fff',
-    fontSize: 14,
-    fontWeight: '700',
-    letterSpacing: 0.43,
-    textTransform: 'uppercase',
-    textAlignVertical: 'center',
-    textAlign: 'center',
+  subContainer: {
+    flexDirection: 'row',
+  },
+  titleName: {
+    fontSize: 16,
+    color: '#333',
+    fontWeight: '600',
+    marginRight: 20,
   },
 });

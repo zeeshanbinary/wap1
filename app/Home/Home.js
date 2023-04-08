@@ -9,12 +9,22 @@ import {
   View,
 } from 'react-native';
 
-const Home = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [mobile, setMobile] = useState('');
-  const [address, setAddress] = useState('');
+const Home = ({navigation}) => {
+  const [item, setItem] = useState({
+    name: '',
+    email: '',
+    password: '',
+    mobile: '',
+    address: '',
+  });
+
+  const handleInputChange = (nativeApi,prop) => {
+    const value = nativeApi.nativeEvent.text;
+    setItem((oldData) => ({
+      ...oldData,
+      [prop] : value
+    }))
+  }
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -32,41 +42,43 @@ const Home = () => {
           <TextInput
             style={styles.input}
             placeholder="Enter Name"
-            value={name}
-            onChangeText={text => setName(text)}
+            value={item.name}
+            onChange={nativeApi => handleInputChange(nativeApi, 'name')}
           />
           <TextInput
             style={styles.input}
             placeholder="Enter Email"
             keyboardType="email-address"
-            value={email}
-            onChangeText={text => setEmail(text)}
+            value={item.email}
+            onChange={nativeApi => handleInputChange(nativeApi, 'email')}
           />
           <TextInput
             style={styles.input}
             placeholder="Enter Password"
             secureTextEntry={true}
-            value={password}
-            onChangeText={text => setPassword(text)}
+            value={item.password}
+            onChange={nativeApi => handleInputChange(nativeApi, 'password')}
           />
           <TextInput
             style={styles.input}
             placeholder="Enter Mobile No"
             keyboardType="phone-pad"
-            value={mobile}
-            onChangeText={text => setMobile(text)}
+            value={item.mobile}
+            onChange={nativeApi => handleInputChange(nativeApi, 'mobile')}
           />
           <TextInput
             style={styles.textArea}
             placeholder="Enter Address"
             keyboardType="phone-pad"
             multiline={true}
-            value={address}
-            onChangeText={text => setAddress(text)}
+            value={item.address}
+            onChange={nativeApi => handleInputChange(nativeApi, 'address')}
           />
         </ScrollView>
 
-        <TouchableOpacity style={styles.btn}>
+        <TouchableOpacity
+          style={styles.btn}
+          onPress={() => navigation.navigate('About', item)}>
           <Text style={styles.btnText}>Click Here</Text>
         </TouchableOpacity>
       </View>
