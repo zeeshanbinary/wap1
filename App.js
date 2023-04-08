@@ -1,10 +1,10 @@
 import React from 'react';
-import Views from './app/Views/Views';
+import Navigations from './app/navigations/Navigations';
 
 const App = () => {
   return (
     <>
-      <Views />
+      <Navigations />
     </>
   );
 };
