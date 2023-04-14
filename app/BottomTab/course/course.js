@@ -1,12 +1,9 @@
 import React from 'react';
 import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
+import {WebView} from 'react-native-webview';
 
 const Course = () => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Course Page</Text>
-    </View>
-  );
+  return <WebView source={{uri: 'https://wapinstitute.com/courses'}} />;
 };
 
 export default Course;

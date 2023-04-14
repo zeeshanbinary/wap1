@@ -1,13 +1,9 @@
 import React from 'react';
 import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
-
+import {WebView} from 'react-native-webview';
 
 const Homes = () => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Homes Page</Text>
-    </View>
-  );
+  return <WebView source={{uri: 'https://wapinstitute.com/'}} />;
 };
 
 export default Homes;

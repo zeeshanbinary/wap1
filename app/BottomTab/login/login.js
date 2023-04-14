@@ -1,11 +1,10 @@
 import React from 'react';
 import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
+import {WebView} from 'react-native-webview';
 
 const Login = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Login Page</Text>
-    </View>
+    <WebView source={{uri: 'https://wapinstitute.com/portal/classroom'}} />
   );
 };
 
