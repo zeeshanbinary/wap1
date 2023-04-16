@@ -1,10 +1,10 @@
 import React from 'react';
-import AuthNavigation from './app/AuthNavigation/AuthNavigation';
+import Loader from './app/reusable/loader/Loader';
 
 const App = () => {
   return (
     <>
-      <AuthNavigation />
+      <Loader size={20} color={'red'} />
     </>
   );
 };
