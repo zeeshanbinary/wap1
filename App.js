@@ -1,20 +1,62 @@
 import React from 'react';
-import { Texts } from './app/reusable';
-import { PrimaryBlue, PrimaryMagenta, PrimaryYellow } from './app/reusable/colors/Colors';
+import {Button, Texts} from './app/reusable';
+import {View} from 'react-native';
+import {
+  PrimaryBlue,
+  PrimaryMagenta,
+  PrimaryYellow,
+  white,
+} from './app/reusable/colors/Colors';
 
 const App = () => {
   return (
-    <>
-      <Texts>Hello Zeeshan Ansari</Texts>
-      <Texts size="xs" style={{color:PrimaryBlue}}>Hello Zeeshan Ansari 1</Texts>
-      <Texts size="sm" style={{color:PrimaryMagenta}}>Hello Zeeshan Ansari 2</Texts>
-      <Texts size="md" style={{color:PrimaryYellow}}>Hello Zeeshan Ansari 3</Texts>
-      <Texts size="lg">Hello Zeeshan Ansari 4</Texts>
-      <Texts size="xl">Hello Zeeshan Ansari 5</Texts>
-      <Texts size="xxl" style={{color: 'red'}}>Hello Zeeshan Ansari 6</Texts>
-      <Texts size="xxxl">Hello Zeeshan Ansari 7</Texts>
-     
-    </>
+    <View style={{paddingHorizontal: 8, paddingVertical: 8}}>
+      <View style={{marginBottom: 10}}>
+        <Button
+          backgroundColor={PrimaryMagenta}
+          color="white"
+          size="sm"
+          type="outline">
+          Welcome Zeeshan
+        </Button>
+      </View>
+
+      <View style={{marginBottom: 10}}>
+        <Button
+          backgroundColor={PrimaryBlue}
+          color="white"
+          size="md"
+          type="outline">
+          Welcome Zeeshan
+        </Button>
+      </View>
+
+      <View style={{marginBottom: 10}}>
+        <Button
+          backgroundColor={PrimaryYellow}
+          color="white"
+          size="lg"
+          type="outline">
+          Welcome Zeeshan
+        </Button>
+      </View>
+
+      <View style={{marginBottom: 10}}>
+        <Button backgroundColor={PrimaryMagenta} color="white" size="sm">
+          Welcome Zeeshan
+        </Button>
+      </View>
+
+      <View style={{marginBottom: 10}}>
+        <Button backgroundColor={PrimaryBlue} color="white" size="md">
+          Welcome Zeeshan
+        </Button>
+      </View>
+
+      <Button backgroundColor={PrimaryYellow} color="white" size="lg">
+        Welcome Zeeshan
+      </Button>
+    </View>
   );
 };
 
